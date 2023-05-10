@@ -1,0 +1,44 @@
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  background-color: black;
+  margin: 0;
+}
+
+.main-page {
+  display: flex;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: #111;
+}
+
+.navbar a {
+  padding: 8px 10px 8px 20px;
+  width: 200px; 
+  color: #818181;
+  padding-top: 20px;
+  text-decoration: none;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  background-color: black;
+}
+
+.main-content h1 {
+  color: white;
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+
+

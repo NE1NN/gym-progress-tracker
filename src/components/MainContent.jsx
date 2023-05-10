@@ -10,7 +10,7 @@ function MainContent() {
           <option value="Deadlift" />
         </datalist>
       </form>
-      <button id="myBtn" onClick="javascript:alert('Hello World!')">Submit</button>
+      <button id="submit-btn" onClick="javascript:alert('Hello World!')">Submit</button>
     </main>
   )
 }

@@ -3,6 +3,7 @@ body {
   height: 100vh;
 }
 
+
 body {
   background-color: black;
   margin: 0;
@@ -13,6 +14,7 @@ body {
   height: 100vh;
 }
 
+/* Sidebar */
 .navbar {
   display: flex;
   flex-direction: column;
@@ -27,6 +29,7 @@ body {
   text-decoration: none;
 }
 
+/* Header and input form */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -49,3 +52,8 @@ body {
   width: 702.75px;
 }
 
+/* Workout list */
+.workout-list {
+ color: white;
+ list-style-type: none;
+}

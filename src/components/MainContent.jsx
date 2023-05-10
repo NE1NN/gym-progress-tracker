@@ -1,3 +1,5 @@
+import WorkoutList from "./WorkoutList";
+
 function MainContent() {
   return (
     <main className="main-content">
@@ -11,6 +13,7 @@ function MainContent() {
         </datalist>
       </form>
       <button id="submit-btn" onClick="javascript:alert('Hello World!')">Submit</button>
+      <WorkoutList />
     </main>
   )
 }

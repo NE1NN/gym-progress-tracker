@@ -37,16 +37,11 @@ function MainContent() {
           onKeyDown={handleKeyPress}
           value={workout}
         />
-        <datalist id="workouts">
-          <option value="Bench Press" />
-          <option value="Barbell Squat" />
-          <option value="Deadlift" />
-        </datalist>
-        <button id="submit-btn" onClick={handleSubmit}>Submit</button>
+        <button id="submit-btn" onClick={handleSubmit}>+</button>
       </form>
-      <ul class="workout-list">
+      <div class="workout-list">
         {workoutItems}
-      </ul>
+      </div>
     </main>
   )
 }

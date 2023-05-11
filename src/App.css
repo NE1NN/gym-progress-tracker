@@ -59,9 +59,10 @@ body {
   color: white;
   height: 50px;
   flex-grow: 2;
-  max-width: 670px;
+  max-width: 690px;
   font-size: 25px;
   border-style: none;
+  padding-left: 20px;
 }
 
 .main-content input:focus {
@@ -69,7 +70,7 @@ body {
 }
 
 .main-content form:focus-within { 
-  outline: 1px solid white
+  outline: 1px solid black;
 }
 
 #submit-btn {
@@ -77,19 +78,21 @@ body {
   color: white;
   height: 55px;
   border-style: none;
+  font-size: 40px;
 }
 
 /* Workout list */
 .workout-list {
  color: white;
  list-style-type: none;
- width: 690px;
+ width: 750px;
  background-color: #232222;
  margin-top: 40px;
  font-size: larger;
+ border-radius: 10px;
 }
 
 .workout-list li {
-  padding: 10px 0px;
-  border-bottom: 1px solid #121212;
+  padding: 15px;
+  border-bottom: #121212 solid;
 }

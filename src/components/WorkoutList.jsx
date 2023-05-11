@@ -1,9 +1,6 @@
-function WorkoutList() {
+function WorkoutList(props) {
     return (
-        <ul class="workout-list">
-          <li>new</li>
-          <li>list</li>
-        </ul>
+        <li>{props.workout}</li>
     );
 }
 

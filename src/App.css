@@ -47,28 +47,46 @@ body {
   margin-top: 2rem;
 }
 
+/* Input form */
+.main-content form {
+  display: flex;
+  align-items: center;
+  border: 1px solid grey;
+}
+
 .main-content input {
   background-color: #232222;
   color: white;
-  border-color: #FFFFFF;
-  height: 40px;
+  height: 50px;
+  flex-grow: 2;
+  max-width: 670px;
+  font-size: 25px;
+  border-style: none;
+}
+
+.main-content input:focus {
+  outline: none;
+}
+
+.main-content form:focus-within { 
+  outline: 1px solid white
 }
 
 #submit-btn {
-  width: 702.75px;
-  height: 30px;
   background-color: #232222;
   color: white;
-  border-color: yellowgreen;
+  height: 55px;
+  border-style: none;
 }
 
 /* Workout list */
 .workout-list {
  color: white;
  list-style-type: none;
- width: 662px;
+ width: 690px;
  background-color: #232222;
  margin-top: 40px;
+ font-size: larger;
 }
 
 .workout-list li {

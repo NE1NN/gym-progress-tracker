@@ -42,8 +42,8 @@ function MainContent() {
           <option value="Barbell Squat" />
           <option value="Deadlift" />
         </datalist>
+        <button id="submit-btn" onClick={handleSubmit}>Submit</button>
       </form>
-      <button id="submit-btn" onClick={handleSubmit}>Submit</button>
       <ul class="workout-list">
         {workoutItems}
       </ul>

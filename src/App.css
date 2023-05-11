@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=swap');
+
 html,
 body {
   height: 100vh;
+  font-family: 'Inter', sans-serif;
 }
 
 
@@ -18,7 +21,7 @@ body {
 .navbar {
   display: flex;
   flex-direction: column;
-  background-color: #111;
+  background-color: #232222;
 }
 
 .navbar a {
@@ -35,11 +38,11 @@ body {
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
-  background-color: black;
+  background-color: #121212;
 }
 
 .main-content h1 {
-  color: white;
+  color: #FFFFFF;
   font-size: 3rem;
   margin-top: 2rem;
 }
@@ -50,6 +53,7 @@ body {
 
 #submit-btn {
   width: 702.75px;
+  height: 30px;
 }
 
 /* Workout list */
@@ -57,5 +61,11 @@ body {
  color: white;
  list-style-type: none;
  width: 662px;
- background-color: red;
+ background-color: #232222;
+ margin-top: 40px;
+}
+
+.workout-list li {
+  padding: 10px 0px;
+  border-bottom: 1px solid #121212;
 }

@@ -32,7 +32,7 @@ function MainContent() {
           type="text" 
           id="workout" 
           name="workout" 
-          size="100" 
+          size="100"
           placeholder="Workout Name"
           onChange={handleChange}
           onKeyDown={handleKeyPress}

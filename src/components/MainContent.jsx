@@ -12,6 +12,7 @@ function MainContent() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    if (workout === "") return;
     setWorkoutList(prevWorkoutList => [...prevWorkoutList, workout]);
     setWorkout("");
   }

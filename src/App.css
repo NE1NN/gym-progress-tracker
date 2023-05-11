@@ -47,13 +47,19 @@ body {
   margin-top: 2rem;
 }
 
-#workout {
-  height: 25px;
+.main-content input {
+  background-color: #232222;
+  color: white;
+  border-color: #FFFFFF;
+  height: 40px;
 }
 
 #submit-btn {
   width: 702.75px;
   height: 30px;
+  background-color: #232222;
+  color: white;
+  border-color: yellowgreen;
 }
 
 /* Workout list */

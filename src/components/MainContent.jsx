@@ -30,7 +30,6 @@ function MainContent() {
       <form>
         <input 
           type="text" 
-          id="workout" 
           name="workout" 
           size="100"
           placeholder="Workout Name"

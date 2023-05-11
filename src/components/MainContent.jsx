@@ -4,7 +4,7 @@ import { useState } from "react";
 function MainContent() {
 
   const [workoutList, setWorkoutList] = useState([]);
-  const [workout, setWorkout] = useState([]);
+  const [workout, setWorkout] = useState("");
 
   function handleChange(event) {
     setWorkout(event.target.value);
@@ -13,7 +13,13 @@ function MainContent() {
   function handleSubmit(event) {
     event.preventDefault();
     setWorkoutList(prevWorkoutList => [...prevWorkoutList, workout]);
-    console.log(workoutList);
+    setWorkout("");
+  }
+
+  function handleKeyPress(event) {
+    if (event.key === "Enter") {
+      handleSubmit(event);
+    }
   }
 
   const workoutItems = workoutList.map(workout => <WorkoutList workout={workout} />);
@@ -29,6 +35,8 @@ function MainContent() {
           size="100" 
           placeholder="Workout Name"
           onChange={handleChange}
+          onKeyDown={handleKeyPress}
+          value={workout}
         />
         <datalist id="workouts">
           <option value="Bench Press" />

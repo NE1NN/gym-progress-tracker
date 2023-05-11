@@ -56,4 +56,6 @@ body {
 .workout-list {
  color: white;
  list-style-type: none;
+ width: 662px;
+ background-color: red;
 }

@@ -1,5 +1,7 @@
 import WorkoutList from "./WorkoutList";
-import { useState } from "react";
+import React, { useState } from "react";
+import {onSnapshot, collection} from "firebase/firestore";
+import { workoutCollection } from "../../firebase";
 
 function MainContent() {
 
@@ -22,6 +24,17 @@ function MainContent() {
       handleSubmit(event);
     }
   }
+
+  React.useEffect(() => {
+    const unsubscribe = onSnapshot(workoutCollection, function(snapshot) {
+      console.log("The workout collection has changed!");
+      const workoutArr = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+      }))
+    })
+    return unsubscribe;
+  }, [])
 
   const workoutItems = workoutList.map(workout => <WorkoutList workout={workout} />);
 

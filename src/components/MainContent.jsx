@@ -1,6 +1,6 @@
 import WorkoutList from "./WorkoutList";
 import React, { useState } from "react";
-import {onSnapshot, collection} from "firebase/firestore";
+import {onSnapshot, addDoc} from "firebase/firestore";
 import { workoutCollection } from "../../firebase";
 
 function MainContent() {
@@ -12,10 +12,10 @@ function MainContent() {
     setWorkout(event.target.value);
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     if (workout === "") return;
-    setWorkoutList(prevWorkoutList => [...prevWorkoutList, workout]);
+    await addDoc(workoutCollection, {name: workout});
     setWorkout("");
   }
 
@@ -28,10 +28,8 @@ function MainContent() {
   React.useEffect(() => {
     const unsubscribe = onSnapshot(workoutCollection, function(snapshot) {
       console.log("The workout collection has changed!");
-      const workoutArr = snapshot.docs.map(doc => ({
-        ...doc.data(),
-        id: doc.id
-      }))
+      const workoutArray = snapshot.docs.map(doc => doc.data().name);
+      setWorkoutList(workoutArray)
     })
     return unsubscribe;
   }, [])

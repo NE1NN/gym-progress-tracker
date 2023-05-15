@@ -4,7 +4,7 @@ function WorkoutList(props) {
     return (
         <section>
             <li>{props.name}</li>
-            <DeleteIcon onClick={() => {console.log("clicked")}}/>
+            <DeleteIcon onClick={() => props.deleteWorkout(props.id)}/>
         </section>
     );
 }

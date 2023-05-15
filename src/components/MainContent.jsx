@@ -1,7 +1,7 @@
 import WorkoutList from "./WorkoutList";
 import React, { useState } from "react";
-import {onSnapshot, addDoc} from "firebase/firestore";
-import { workoutCollection } from "../../firebase";
+import {onSnapshot, addDoc, doc, deleteDoc} from "firebase/firestore";
+import { db, workoutCollection } from "../../firebase";
 
 
 function MainContent() {
@@ -26,13 +26,17 @@ function MainContent() {
     }
   }
 
+  async function deleteWorkout(workoutId) {
+    const docRef = doc(db, "workouts", workoutId);
+    await deleteDoc(docRef);
+  }
+
   React.useEffect(() => {
     const unsubscribe = onSnapshot(workoutCollection, function(snapshot) {
       const workoutArray = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }))
-      // const workoutArray = snapshot.docs.map(doc => doc.data().name)
       setWorkoutList(workoutArray)
       console.log(workoutList)
     })
@@ -44,6 +48,7 @@ function MainContent() {
       key={workout.id}
       name={workout.name}
       id={workout.id}
+      deleteWorkout={deleteWorkout}
       />
   );
 

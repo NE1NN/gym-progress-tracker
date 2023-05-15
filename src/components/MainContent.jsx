@@ -15,16 +15,31 @@ function MainContent() {
     setWorkout(event.target.value);
   }
 
-  async function handleSubmit(event) {
+  function capitalizeFirstLetter(string) {
+    return string
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  async function addWorkout(event) {
     event.preventDefault();
     if (workout === "") return;
-    await addDoc(workoutCollection, {name: workout, addedTime: Date.now()});
+    const capitalizedWorkout = capitalizeFirstLetter(workout);
+    if (workoutList.some(workoutItem => workoutItem.name === capitalizedWorkout)) {
+      alert("Workout already exists!");
+      setWorkout("");
+      return;
+    }
+
+    await addDoc(workoutCollection, {name: capitalizedWorkout, addedTime: Date.now()});
     setWorkout("");
   }
 
   function handleKeyPress(event) {
     if (event.key === "Enter") {
-      handleSubmit(event);
+      addWorkout(event);
     }
   }
 
@@ -66,7 +81,7 @@ function MainContent() {
           onKeyDown={handleKeyPress}
           value={workout}
         />
-        <button id="submit-btn" onClick={handleSubmit}>+</button>
+        <button id="submit-btn" onClick={addWorkout}>+</button>
       </form>
       <div className="workout-list">
         {workoutItems}

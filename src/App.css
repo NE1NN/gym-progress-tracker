@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;800&display=swap');
+
 html,
 body {
   height: 100vh;
+  font-family: 'Inter', sans-serif;
 }
+
 
 body {
   background-color: black;
@@ -13,10 +17,11 @@ body {
   height: 100vh;
 }
 
+/* Sidebar */
 .navbar {
   display: flex;
   flex-direction: column;
-  background-color: #111;
+  background-color: #232222;
 }
 
 .navbar a {
@@ -27,25 +32,69 @@ body {
   text-decoration: none;
 }
 
+/* Header and input form */
 .main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
-  background-color: black;
+  background-color: #121212;
 }
 
 .main-content h1 {
-  color: white;
+  color: #FFFFFF;
   font-size: 3rem;
   margin-top: 2rem;
 }
 
-#workout {
-  height: 25px;
+/* Input form */
+.main-content form {
+  display: flex;
+  align-items: center;
+  border: 1px solid grey;
+}
+
+.main-content input {
+  background-color: #232222;
+  color: white;
+  height: 50px;
+  flex-grow: 2;
+  max-width: 690px;
+  font-size: 25px;
+  border-style: none;
+  padding-left: 20px;
+}
+
+.main-content input:focus {
+  outline: none;
+}
+
+.main-content form:focus-within { 
+  outline: 1px solid black;
 }
 
 #submit-btn {
-  width: 702.75px;
+  background-color: #232222;
+  color: white;
+  height: 55px;
+  border-style: none;
+  font-size: 40px;
 }
 
+/* Workout list */
+.workout-list {
+ color: white;
+ list-style-type: none;
+ width: 750px;
+ background-color: #232222;
+ margin-top: 40px;
+ font-size: larger;
+ border-radius: 10px;
+}
+
+.workout-list section {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #121212 solid;
+  padding: 15px;
+}

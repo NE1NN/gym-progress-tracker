@@ -9,6 +9,8 @@ function MainContent() {
   const [workoutList, setWorkoutList] = useState([]);
   const [workout, setWorkout] = useState("");
 
+  const sortedWorkoutList = workoutList.sort((a, b) => a.addedTime - b.addedTime);
+
   function handleChange(event) {
     setWorkout(event.target.value);
   }
@@ -16,7 +18,7 @@ function MainContent() {
   async function handleSubmit(event) {
     event.preventDefault();
     if (workout === "") return;
-    await addDoc(workoutCollection, {name: workout});
+    await addDoc(workoutCollection, {name: workout, addedTime: Date.now()});
     setWorkout("");
   }
 
@@ -42,7 +44,7 @@ function MainContent() {
     return unsubscribe;
   }, [])
 
-  const workoutItems = workoutList.map(workout => 
+  const workoutItems = sortedWorkoutList.map(workout => 
     <WorkoutList 
       key={workout.id}
       name={workout.name}

@@ -38,7 +38,6 @@ function MainContent() {
         ...doc.data()
       }))
       setWorkoutList(workoutArray)
-      console.log(workoutList)
     })
     return unsubscribe;
   }, [])
@@ -67,7 +66,7 @@ function MainContent() {
         />
         <button id="submit-btn" onClick={handleSubmit}>+</button>
       </form>
-      <div class="workout-list">
+      <div className="workout-list">
         {workoutItems}
       </div>
     </main>

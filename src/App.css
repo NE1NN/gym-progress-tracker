@@ -92,7 +92,9 @@ body {
  border-radius: 10px;
 }
 
-.workout-list li {
-  padding: 15px;
+.workout-list section {
+  display: flex;
+  justify-content: space-between;
   border-bottom: #121212 solid;
+  padding: 15px;
 }

@@ -1,6 +1,11 @@
+import DeleteIcon from '@mui/icons-material/Delete';
+
 function WorkoutList(props) {
     return (
-        <li>{props.workout}</li>
+        <section>
+            <li>{props.workout}</li>
+            <DeleteIcon />
+        </section>
     );
 }
 

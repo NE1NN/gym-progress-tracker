@@ -27,7 +27,6 @@ function MainContent() {
 
   React.useEffect(() => {
     const unsubscribe = onSnapshot(workoutCollection, function(snapshot) {
-      console.log("The workout collection has changed!");
       const workoutArray = snapshot.docs.map(doc => doc.data().name);
       setWorkoutList(workoutArray)
     })

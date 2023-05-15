@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {onSnapshot, addDoc} from "firebase/firestore";
 import { workoutCollection } from "../../firebase";
 
+
 function MainContent() {
 
   const [workoutList, setWorkoutList] = useState([]);
@@ -27,13 +28,24 @@ function MainContent() {
 
   React.useEffect(() => {
     const unsubscribe = onSnapshot(workoutCollection, function(snapshot) {
-      const workoutArray = snapshot.docs.map(doc => doc.data().name);
+      const workoutArray = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      // const workoutArray = snapshot.docs.map(doc => doc.data().name)
       setWorkoutList(workoutArray)
+      console.log(workoutList)
     })
     return unsubscribe;
   }, [])
 
-  const workoutItems = workoutList.map(workout => <WorkoutList workout={workout} />);
+  const workoutItems = workoutList.map(workout => 
+    <WorkoutList 
+      key={workout.id}
+      name={workout.name}
+      id={workout.id}
+      />
+  );
 
   return (
     <main className="main-content">

@@ -8,6 +8,7 @@ function WorkoutList(props) {
                 onClick={() => props.deleteWorkout(props.id)}
                 onMouseEnter={e => e.target.style.color = "red"}
                 onMouseLeave={e => e.target.style.color = "white"}
+                style={{cursor: "pointer"}}
             />
         </section>
     );

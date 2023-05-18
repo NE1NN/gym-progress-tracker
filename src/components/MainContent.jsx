@@ -81,7 +81,7 @@ function MainContent() {
           onKeyDown={handleKeyPress}
           value={workout}
         />
-        <button id="submit-btn" onClick={addWorkout}>+</button>
+        <button id="submit-btn" onClick={addWorkout} style={{cursor: "pointer"}}>+</button>
       </form>
       <div className="workout-list">
         {workoutItems}

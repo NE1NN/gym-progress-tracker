@@ -1,9 +1,16 @@
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from 'react-router-dom';
 
 function WorkoutList(props) {
+
+    const style = {
+        textDecoration: 'none',
+        color: 'white'
+    }
+
     return (
         <section>
-            <li>{props.name}</li>
+            <li><Link to="/details" style={style}>{props.name}</Link></li>
             <DeleteIcon 
                 onClick={() => props.deleteWorkout(props.id)}
                 onMouseEnter={e => e.target.style.color = "red"}

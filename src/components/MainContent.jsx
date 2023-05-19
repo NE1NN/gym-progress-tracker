@@ -115,12 +115,16 @@ function MainContent() {
       </form> */}
       <Autocomplete
         disablePortal
+        selectOnFocus
+        clearOnBlur
+        freeSolo
         id="input-box"
         options={allWorkouts.map((option) => option.name)}
         sx={{ width: 740 }}
         style={{ backgroundColor: '#232222' }}
         renderInput={(params) => <TextField {...params} placeholder="Workout Name"/>}
         onChange={(event, value) => addWorkout(event, value)}
+        
       />
       <div className="workout-list">
         {workoutItems}

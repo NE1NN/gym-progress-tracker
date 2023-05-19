@@ -123,3 +123,7 @@ body {
   background: #555; 
   border: 3px solid darkgrey;
 }
+
+#test {
+  background-color: white;
+}

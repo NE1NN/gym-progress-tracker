@@ -19,3 +19,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const workoutCollection = collection(db, 'workouts');
+export const allWorkoutCollection = collection(db, 'allWorkouts');

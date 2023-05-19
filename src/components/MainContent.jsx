@@ -1,11 +1,12 @@
 import WorkoutList from "./WorkoutList";
 import React, { useState } from "react";
 import {onSnapshot, addDoc, doc, deleteDoc} from "firebase/firestore";
-import { db, workoutCollection } from "../../firebase";
-
+import { db, workoutCollection, allWorkoutCollection } from "../../firebase";
+import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 
 function MainContent() {
 
+  const [allWorkouts, setAllWorkouts] = useState([]);
   const [workoutList, setWorkoutList] = useState([]);
   const [workout, setWorkout] = useState("");
 
@@ -48,6 +49,7 @@ function MainContent() {
     await deleteDoc(docRef);
   }
 
+  // Collects all workout names from the database and stores them in an array
   React.useEffect(() => {
     const unsubscribe = onSnapshot(workoutCollection, function(snapshot) {
       const workoutArray = snapshot.docs.map(doc => ({
@@ -55,6 +57,18 @@ function MainContent() {
         ...doc.data()
       }))
       setWorkoutList(workoutArray)
+    })
+    
+    return unsubscribe;
+  }, [])
+
+  React.useEffect(() => {
+    const unsubscribe = onSnapshot(allWorkoutCollection, function(snapshot) {
+      const allWorkoutArray = snapshot.docs.map(doc => ({
+        id: doc.id,
+        name: doc.data().name
+      }))
+      setAllWorkouts(allWorkoutArray)
     })
     return unsubscribe;
   }, [])

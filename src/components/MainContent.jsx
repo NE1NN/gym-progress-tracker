@@ -124,7 +124,6 @@ function MainContent() {
         style={{ backgroundColor: '#232222' }}
         renderInput={(params) => <TextField {...params} placeholder="Workout Name"/>}
         onChange={(event, value) => addWorkout(event, value)}
-        
       />
       <div className="workout-list">
         {workoutItems}

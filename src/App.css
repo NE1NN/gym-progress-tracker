@@ -124,6 +124,24 @@ body {
   border: 3px solid darkgrey;
 }
 
-#test {
-  background-color: white;
+/* Workout details page */
+
+.workout-details-page {
+  display: flex;
+  height: 100vh;
 }
+
+.workout-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  background-color: #121212;
+}
+
+.workout-details h1 {
+  color: #FFFFFF;
+  font-size: 3rem;
+  margin-top: 2rem;
+}
+

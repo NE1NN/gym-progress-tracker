@@ -10,7 +10,11 @@ function WorkoutList(props) {
 
     return (
         <section>
-            <li><Link to="/details" style={style}>{props.name}</Link></li>
+            <li>
+                <Link to="/details" style={style} state={{name: props.name}}>
+                    {props.name}
+                </Link>
+            </li>
             <DeleteIcon 
                 onClick={() => props.deleteWorkout(props.id)}
                 onMouseEnter={e => e.target.style.color = "red"}

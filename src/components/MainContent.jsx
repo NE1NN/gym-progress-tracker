@@ -26,20 +26,6 @@ function MainContent() {
       .join(' ');
   }
 
-  // async function addWorkout(event) {
-  //   // event.preventDefault();
-  //   if (workout === "") return;
-  //   const capitalizedWorkout = capitalizeFirstLetter(workout);
-  //   if (workoutList.some(workoutItem => workoutItem.name === capitalizedWorkout)) {
-  //     alert("Workout already exists!");
-  //     setWorkout("");
-  //     return;
-  //   }
-
-  //   await addDoc(workoutCollection, {name: capitalizedWorkout, addedTime: Date.now()});
-  //   setWorkout("");
-  // }
-
   async function addWorkout(event, value) {
     event.preventDefault();
     if (value === "") return;
@@ -101,18 +87,6 @@ function MainContent() {
   return (
     <main className="main-content">
       <h1>Today&apos;s Workout</h1>
-      {/* <form>
-        <input 
-          type="text" 
-          name="workout" 
-          size="100"
-          placeholder="Workout Name"
-          onChange={handleChange}
-          onKeyDown={handleKeyPress}
-          value={workout}
-        />
-        <button id="submit-btn" onClick={addWorkout} style={{cursor: "pointer"}}>+</button>
-      </form> */}
       <Autocomplete
         disablePortal
         selectOnFocus

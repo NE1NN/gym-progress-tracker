@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import {onSnapshot, addDoc, doc, deleteDoc} from "firebase/firestore";
 import { db, workoutCollection, allWorkoutCollection } from "../../firebase";
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
+
 
 function MainContent() {
 
@@ -24,10 +26,24 @@ function MainContent() {
       .join(' ');
   }
 
-  async function addWorkout(event) {
+  // async function addWorkout(event) {
+  //   // event.preventDefault();
+  //   if (workout === "") return;
+  //   const capitalizedWorkout = capitalizeFirstLetter(workout);
+  //   if (workoutList.some(workoutItem => workoutItem.name === capitalizedWorkout)) {
+  //     alert("Workout already exists!");
+  //     setWorkout("");
+  //     return;
+  //   }
+
+  //   await addDoc(workoutCollection, {name: capitalizedWorkout, addedTime: Date.now()});
+  //   setWorkout("");
+  // }
+
+  async function addWorkout(event, value) {
     event.preventDefault();
-    if (workout === "") return;
-    const capitalizedWorkout = capitalizeFirstLetter(workout);
+    if (value === "") return;
+    const capitalizedWorkout = capitalizeFirstLetter(value);
     if (workoutList.some(workoutItem => workoutItem.name === capitalizedWorkout)) {
       alert("Workout already exists!");
       setWorkout("");
@@ -85,7 +101,7 @@ function MainContent() {
   return (
     <main className="main-content">
       <h1>Today&apos;s Workout</h1>
-      <form>
+      {/* <form>
         <input 
           type="text" 
           name="workout" 
@@ -96,7 +112,16 @@ function MainContent() {
           value={workout}
         />
         <button id="submit-btn" onClick={addWorkout} style={{cursor: "pointer"}}>+</button>
-      </form>
+      </form> */}
+      <Autocomplete
+        disablePortal
+        id="input-box"
+        options={allWorkouts.map((option) => option.name)}
+        sx={{ width: 740 }}
+        style={{ backgroundColor: '#232222' }}
+        renderInput={(params) => <TextField {...params} placeholder="Workout Name"/>}
+        onChange={(event, value) => addWorkout(event, value)}
+      />
       <div className="workout-list">
         {workoutItems}
       </div>

@@ -48,38 +48,42 @@ body {
 }
 
 /* Input form */
-.main-content form {
+/* .main-content form {
   display: flex;
   align-items: center;
   border: 1px solid grey;
+} */
+
+#input-box {
+  display: flex;
+  align-items: center;
 }
 
 .main-content input {
-  background-color: #232222;
   color: white;
-  height: 50px;
+  height: 30px;
   flex-grow: 2;
   max-width: 690px;
   font-size: 25px;
   border-style: none;
   padding-left: 20px;
 }
-
+/* 
 .main-content input:focus {
   outline: none;
-}
+} */
 
-.main-content form:focus-within { 
+/* .main-content form:focus-within { 
   outline: 1px solid black;
-}
+} */
 
-#submit-btn {
+/* #submit-btn {
   background-color: #232222;
   color: white;
   height: 55px;
   border-style: none;
   font-size: 40px;
-}
+} */
 
 /* Workout list */
 .workout-list {
